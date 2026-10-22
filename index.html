@@ -9,6 +9,7 @@
 <title>JUSOYUNO? | Your address. Sorted.</title>
 <link rel="stylesheet" href="/styles.css">
 <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js" defer crossorigin="anonymous"></script>
+<script src="/ocr-core.js" defer></script>
 <script src="/app.js" defer></script>
 </head><body>
 <header class="mast">
@@ -23,9 +24,12 @@
   <section class="panel" aria-labelledby="capture-title">
    <div class="panel-head"><span class="step">01</span><h3 id="capture-title" data-i18n="step1">Read your document</h3></div>
    <div class="notice"><strong data-i18n="noticeTitle">Only the address, please.</strong><span data-i18n="noticeText">Cover names, ID numbers, contract amounts, and signatures. Photograph just the address area.</span></div>
-   <label class="upload" for="photo"><svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="7" y="12" width="34" height="28" rx="5"/><circle cx="24" cy="26" r="8"/><path d="M17 12l2-5h10l2 5"/></svg><strong data-i18n="upload">Take photo / choose image</strong><span data-i18n="uploadHint">JPG, PNG, WebP · 12 MB max · processed on-device</span><input type="file" id="photo" accept="image/jpeg,image/png,image/webp" capture="environment"></label>
+   <label class="upload" for="photo"><svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="7" y="12" width="34" height="28" rx="5"/><circle cx="24" cy="26" r="8"/><path d="M17 12l2-5h10l2 5"/></svg><strong data-i18n="upload">Take photo / choose image</strong><span data-i18n="uploadHint">JPG, PNG, WebP · 12 MB max · processed on-device</span><input type="file" id="photo" accept="image/jpeg,image/png,image/webp,image/heic,image/heif" capture="environment"></label>
+   <label class="gallery-label" for="galleryPhoto">▣ <span data-i18n="galleryLabel">Choose from photos instead</span><input type="file" id="galleryPhoto" accept="image/jpeg,image/png,image/webp,image/heic,image/heif"></label>
    <div id="previewArea" hidden><div class="image-frame" id="imageFrame"><img id="previewImage" alt="Selected address document"><div class="crop" id="crop" role="img" aria-label="Movable and resizable address selection"></div></div><p class="fine" data-i18n="cropHint">Move the orange selection over the address. Drag its corner to resize.</p><div class="actions"><button class="btn coral" id="runOcr" type="button" data-i18n="recognize">Recognize address</button><button class="btn outline" id="removePhoto" type="button" data-i18n="remove">Remove image</button></div></div>
-   <div id="ocrStatus" class="status" role="status" hidden></div>
+   <div id="ocrStatus" class="status" role="status" aria-live="polite" hidden></div>
+   <div id="ocrCandidates" class="ocr-candidates" role="group" aria-label="OCR address readings" hidden></div>
+   <div id="cloudPanel" class="cloud-panel" hidden><h4 data-i18n="ocrCloudTitle">Optional handwriting recognition</h4><p data-i18n="ocrCloudExplain">The cropped address image is sent to an external OCR provider with your consent.</p><label class="cloud-consent"><input type="checkbox" id="cloudConsent"><span data-i18n="ocrCloudConsent">I agree to send ONLY the cropped address image to the external OCR provider for this request.</span></label><button id="cloudRun" class="btn outline" type="button" disabled data-i18n="ocrCloudRun">Try handwriting reader</button></div>
    <div class="or"><span data-i18n="or">OR TYPE IT</span></div>
    <label class="field" for="keyword"><strong data-i18n="addressLabel">Korean address or building name</strong><input id="keyword" maxlength="150" autocomplete="off" placeholder="제주시 중앙로 1"><span data-i18n="searchHint">You can edit any text recognized from your photo.</span></label>
    <button class="btn primary wide" id="search" type="button"><span data-i18n="searchBtn">Search official address</span><span aria-hidden="true">↗</span></button>

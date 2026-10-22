@@ -6,21 +6,187 @@ const VI={hero:"Khó viết địa chỉ bằng tiếng Hàn? Chụp phần đ�
 const ID={hero:"Sulit menulis alamat Korea? Foto bagian alamat, cocokkan data resmi, lalu isi sendiri.",privacyBadge:"Foto tetap di perangkat",noLogin:"Tanpa akun",sectionTitle:"Cari alamat Korea",sectionSubtitle:"Foto bagian alamat atau ketik untuk mencari.",step1:"Baca alamat dokumen",step2:"Periksa & isi sendiri",noticeTitle:"Foto bagian alamat saja",noticeText:"Tutupi nama, nomor identitas, nilai kontrak, dan tanda tangan.",upload:"Ambil / pilih foto",uploadHint:"JPG, PNG, WebP · maks. 12MB",cropHint:"Geser kotak jingga ke alamat. Seret sudut untuk mengubah ukuran.",recognize:"Kenali alamat",remove:"Hapus foto",or:"ATAU KETIK",addressLabel:"Alamat atau nama gedung (Korea)",searchHint:"Teks hasil pengenalan bisa diedit.",searchBtn:"Cari alamat resmi",emptyTitle:"Alamat muncul di sini",emptyText:"Pilih alamat yang sesuai dan periksa nomor gedung serta kamar.",official:"ALAMAT DASAR RESMI",copyKo:"Salin Korea",copyEn:"Salin Inggris",unitLabel:"Gedung / kamar (jika ada)",unitNotice:"Anda wajib memverifikasi sendiri informasi ini.",copyCombined:"Salin alamat + kamar",startOver:"Mulai ulang",warning:"Alat ini tidak membuktikan tempat tinggal, kepemilikan, atau keaslian dokumen. Periksa formulir sendiri.",manualTitle:"Pencarian resmi belum terhubung",manualHelp:"Diperlukan kunci API. Teks OCR belum diverifikasi.",copyInput:"Salin teks (belum diverifikasi)",officialLink:"Situs alamat resmi ↗",qa1:"Foto tetap lokal",qa1t:"OCR berjalan di browser; berkas bahasa dapat diunduh dari CDN.",qa2:"Hanya kata pencarian dikirim",qa2t:"Jangan masukkan nama atau nomor identitas.",qa3:"Periksa sendiri",qa3t:"Alamat dasar tidak membuktikan tempat tinggal. Periksa nomor unit.",disclaimer:"Alat mandiri, bukan layanan imigrasi resmi.",working:"Mengenali pada perangkat…",success:"Teks dikenali. Periksa kembali.",imageError:"Gunakan JPG/PNG/WebP di bawah 12MB.",ocrError:"Pengenalan gagal. Ketik manual.",enter:"Masukkan alamat dulu.",searching:"Mencari alamat resmi…",none:"Tidak ada hasil.",select:"Pilih alamat yang cocok.",unavailable:"Pencarian resmi belum dikonfigurasi.",network:"Layanan alamat tidak tersedia.",copied:"Tersalin.",copyError:"Gagal menyalin.",sensitive:"Hapus nomor telepon, nomor identitas, atau email sebelum mencari alamat.",postal:"Kode pos",authProblem:"Kunci API alamat resmi tidak valid atau kedaluwarsa. Admin perlu memeriksa kunci API pencarian.",queryRejected:"Layanan resmi menolak kata pencarian ini. Gunakan nama jalan dan nomor gedung yang lebih tepat.",timeout:"Layanan alamat kehabisan waktu. Silakan coba lagi.",providerError:"Pencarian alamat resmi sementara tidak tersedia. Coba lagi nanti.",rateLimited:"Terlalu banyak pencarian. Tunggu sebentar lalu coba lagi."};
 const HI={hero:"कोरियाई पता लिखना कठिन है? पते की फ़ोटो लें, आधिकारिक रिकॉर्ड जाँचें और खुद फ़ॉर्म भरें।",privacyBadge:"फ़ोटो आपके डिवाइस पर",noLogin:"खाते की ज़रूरत नहीं",sectionTitle:"कोरियाई पता खोजें",sectionSubtitle:"पते की फ़ोटो लें या पता टाइप करें।",step1:"दस्तावेज़ से पता पढ़ें",step2:"जाँचें और स्वयं लिखें",noticeTitle:"सिर्फ पते की फ़ोटो लें",noticeText:"नाम, पहचान नंबर, रकम और हस्ताक्षर ढकें।",upload:"फ़ोटो लें / चुनें",uploadHint:"JPG, PNG, WebP · अधिकतम 12MB",cropHint:"नारंगी चयन पते पर रखें और कोने से आकार बदलें।",recognize:"पता पहचानें",remove:"फ़ोटो हटाएँ",or:"या टाइप करें",addressLabel:"कोरियाई पता या भवन का नाम",searchHint:"पहचाने गए पाठ को सुधार सकते हैं।",searchBtn:"आधिकारिक पता खोजें",emptyTitle:"पता यहाँ दिखेगा",emptyText:"सही पता चुनें और भवन एवं कमरे का नंबर जाँचें।",official:"आधिकारिक मूल पता",copyKo:"कोरियाई कॉपी",copyEn:"अंग्रेज़ी कॉपी",unitLabel:"भवन / कमरा (यदि हो)",unitNotice:"इसे स्वयं सत्यापित करें।",copyCombined:"पता + कमरा कॉपी",startOver:"फिर से शुरू करें",warning:"यह उपकरण निवास, स्वामित्व या दस्तावेज़ की प्रामाणिकता प्रमाणित नहीं करता। आवेदन स्वयं जाँचें।",manualTitle:"आधिकारिक खोज अभी जुड़ी नहीं है",manualHelp:"API कुंजी चाहिए। OCR पाठ सत्यापित नहीं है।",copyInput:"असत्यापित पाठ कॉपी",officialLink:"आधिकारिक पता साइट ↗",qa1:"फ़ोटो स्थानीय रहती है",qa1t:"OCR ब्राउज़र में चलता है; भाषा फ़ाइलें CDN से आ सकती हैं।",qa2:"केवल पता खोज भेजी जाती है",qa2t:"व्यक्तिगत पहचान संख्या न लिखें।",qa3:"अंतिम पुष्टि स्वयं करें",qa3t:"मूल पता निवास का प्रमाण नहीं है। कमरे का नंबर जाँचें।",disclaimer:"स्वतंत्र उपकरण, आधिकारिक सेवा नहीं।",working:"डिवाइस पर पहचान जारी…",success:"पाठ पहचाना गया। जाँचें।",imageError:"12MB से छोटी JPG/PNG/WebP फ़ाइल चुनें।",ocrError:"पहचान विफल। पता टाइप करें।",enter:"पहले पता लिखें।",searching:"पता खोज रहे हैं…",none:"कोई परिणाम नहीं।",select:"मिलता पता चुनें।",unavailable:"आधिकारिक खोज उपलब्ध नहीं है।",network:"पता सेवा से नहीं जुड़ सका।",copied:"कॉपी हो गया।",copyError:"कॉपी विफल।",sensitive:"खोजने से पहले फ़ोन नंबर, पहचान संख्या और ईमेल हटाएँ।",postal:"पिन कोड",authProblem:"आधिकारिक पता API कुंजी अमान्य या समाप्त है। व्यवस्थापक को खोज API कुंजी जाँचनी होगी।",queryRejected:"आधिकारिक सेवा ने यह खोज शब्द अस्वीकार किया। अधिक सटीक सड़क नाम और भवन नंबर आज़माएँ।",timeout:"पता सेवा का समय समाप्त। कृपया फिर से प्रयास करें।",providerError:"आधिकारिक पता खोज अस्थायी रूप से उपलब्ध नहीं है। बाद में फिर प्रयास करें।",rateLimited:"बहुत अधिक खोजें। कृपया थोड़ी देर प्रतीक्षा करके फिर प्रयास करें।"};
 const dict={en:EN,ko:KO,zh:ZH,vi:VI,id:ID,hi:HI};
+const OCR_COPY={"en":{"ocrCandidatesTitle":"Possible address readings (NOT VERIFIED)","ocrHint":"Handwriting and faint text can be misread. Choose or edit an option, then check against official address records.","ocrOption":"Use this reading","ocrNoCandidates":"We could not reliably read an address. Try a clearer, closer photo or type it.","ocrLowConfidence":"Low-confidence reading. Carefully correct errors before searching.","ocrProgress":"Reading locally, pass","ocrCloudTitle":"Optional handwriting recognition","ocrCloudExplain":"Only the cropped address image will be sent to Microsoft Azure for recognition. This transfers image data outside your device. Cover names, ID numbers and signatures first. Do not use real sensitive documents without authorization.","ocrCloudConsent":"I agree to send ONLY the cropped address image to the external OCR provider for this request.","ocrCloudRun":"Try handwriting reader","ocrCloudStatus":"Handwriting reader is processing the cropped image…","ocrCloudDone":"Handwriting OCR returned possible text. Check and correct it before official address search.","ocrCloudFailed":"Handwriting recognition was unavailable. Continue with local text or type the address.","ocrNotVerified":"OCR guesses are not official address verification.","ocrNewImage":"Image updated. Run recognition again.","ocrImageDecodeError":"This image cannot be opened on your device. Try JPEG, PNG or WebP."},"ko":{"ocrCandidatesTitle":"주소 인식 후보 (미검증)","ocrHint":"악필·흐린 글씨는 잘못 인식될 수 있습니다. 후보를 선택하거나 수정한 뒤 공식 주소를 검색하세요.","ocrOption":"이 후보 사용","ocrNoCandidates":"주소를 충분히 인식하지 못했습니다. 주소 부분을 더 크게 다시 촬영하거나 직접 입력하세요.","ocrLowConfidence":"정확도가 낮은 후보입니다. 검색 전 오타를 꼭 수정하세요.","ocrProgress":"기기 내부 인식 중 · 단계","ocrCloudTitle":"선택적 손글씨 인식","ocrCloudExplain":"주소로 선택한 사진 영역만 Microsoft Azure로 전송합니다. 이미지는 휴대전화를 벗어나므로 이름·등록번호·서명을 미리 가리세요. 기관 승인 없이 민감한 실제 서류는 사용하지 마세요.","ocrCloudConsent":"이번 요청에 한해 잘라낸 주소 이미지의 외부 OCR 전송에 동의합니다.","ocrCloudRun":"손글씨 전용 인식 시도","ocrCloudStatus":"잘라낸 주소 이미지를 손글씨 엔진이 인식하는 중…","ocrCloudDone":"손글씨 인식 후보를 받았습니다. 공식 주소 검색 전 직접 확인하세요.","ocrCloudFailed":"손글씨 인식을 이용할 수 없습니다. 기존 결과를 수정하거나 직접 입력하세요.","ocrNotVerified":"OCR 후보는 공식 주소 확인 결과가 아닙니다.","ocrNewImage":"사진이 변경됐습니다. 다시 인식하세요.","ocrImageDecodeError":"기기에서 이미지를 열 수 없습니다. JPEG·PNG·WebP로 다시 시도하세요."},"zh":{"ocrCandidatesTitle":"可能的地址识别结果（未经验证）","ocrHint":"潦草手写和模糊文字可能识别错误。请选择并修改，再查询官方地址。","ocrOption":"使用此结果","ocrNoCandidates":"无法可靠识别地址。请拍摄更清晰的近照或手动输入。","ocrLowConfidence":"识别可信度较低，请仔细核对。","ocrProgress":"本地识别，第","ocrCloudTitle":"可选手写识别","ocrCloudExplain":"仅选中的地址区域将发送至 Microsoft Azure。请遮盖姓名、证件号码和签名；未经许可请勿上传敏感文件。","ocrCloudConsent":"我同意仅将裁剪后的地址图片发送至外部识别服务完成本次请求。","ocrCloudRun":"尝试手写识别","ocrCloudStatus":"正在识别裁剪后的图片…","ocrCloudDone":"已获取手写识别候选，请自行核对。","ocrCloudFailed":"手写识别不可用，请手动输入。","ocrNotVerified":"OCR识别不等于官方地址核实。","ocrNewImage":"图片已更换，请重新识别。","ocrImageDecodeError":"无法打开此图片。请使用 JPEG、PNG 或 WebP。"},"vi":{"ocrCandidatesTitle":"Các địa chỉ nhận dạng được (CHƯA XÁC MINH)","ocrHint":"Chữ viết tay và ảnh mờ dễ bị đọc sai. Chọn hoặc sửa trước khi tra cứu chính thức.","ocrOption":"Dùng kết quả này","ocrNoCandidates":"Không đọc được địa chỉ rõ ràng. Hãy chụp gần hơn hoặc nhập thủ công.","ocrLowConfidence":"Độ tin cậy thấp. Kiểm tra kỹ trước khi tìm.","ocrProgress":"Nhận dạng trên máy, lượt","ocrCloudTitle":"Nhận dạng chữ viết tay tùy chọn","ocrCloudExplain":"Chỉ phần ảnh địa chỉ đã cắt được gửi tới Microsoft Azure. Che tên, số định danh và chữ ký. Không gửi tài liệu nhạy cảm khi chưa được phép.","ocrCloudConsent":"Tôi đồng ý gửi CHỈ phần ảnh địa chỉ đã cắt tới dịch vụ OCR bên ngoài cho lần này.","ocrCloudRun":"Thử đọc chữ viết tay","ocrCloudStatus":"Đang nhận dạng chữ viết tay…","ocrCloudDone":"Đã có kết quả OCR. Hãy kiểm tra lại.","ocrCloudFailed":"Không thể nhận dạng chữ viết tay. Hãy nhập thủ công.","ocrNotVerified":"Kết quả OCR không phải xác minh địa chỉ chính thức.","ocrNewImage":"Ảnh đã thay đổi. Vui lòng nhận dạng lại.","ocrImageDecodeError":"Không mở được ảnh. Hãy thử JPEG, PNG hoặc WebP."},"id":{"ocrCandidatesTitle":"Kemungkinan hasil baca alamat (BELUM DIVERIFIKASI)","ocrHint":"Tulisan tangan dan foto buram mudah salah dibaca. Pilih atau perbaiki sebelum mencari alamat resmi.","ocrOption":"Gunakan hasil ini","ocrNoCandidates":"Alamat tidak terbaca dengan yakin. Ambil foto lebih dekat atau ketik sendiri.","ocrLowConfidence":"Keyakinan rendah. Periksa dan perbaiki.","ocrProgress":"Membaca secara lokal, tahap","ocrCloudTitle":"Pengenalan tulisan tangan opsional","ocrCloudExplain":"Hanya gambar alamat yang dipotong dikirim ke Microsoft Azure. Tutupi nama, nomor identitas, dan tanda tangan. Jangan unggah dokumen sensitif tanpa izin.","ocrCloudConsent":"Saya setuju mengirim HANYA gambar alamat yang dipotong ke penyedia OCR eksternal untuk permintaan ini.","ocrCloudRun":"Coba baca tulisan tangan","ocrCloudStatus":"Mengenali tulisan tangan…","ocrCloudDone":"Hasil tulisan tangan diterima. Periksa lagi.","ocrCloudFailed":"Pengenalan tulisan tangan tidak tersedia. Silakan ketik.","ocrNotVerified":"Hasil OCR bukan verifikasi alamat resmi.","ocrNewImage":"Foto berubah. Jalankan OCR lagi.","ocrImageDecodeError":"Gambar tidak dapat dibuka. Gunakan JPEG, PNG, atau WebP."},"hi":{"ocrCandidatesTitle":"संभावित पता पहचान (असत्यापित)","ocrHint":"अस्पष्ट हस्तलिपि गलत पढ़ी जा सकती है। आधिकारिक खोज से पहले चुनें या सुधारें।","ocrOption":"यह पाठ उपयोग करें","ocrNoCandidates":"पता स्पष्ट नहीं पढ़ा जा सका। पास से फ़ोटो लें या लिखें।","ocrLowConfidence":"विश्वास कम है। खोजने से पहले सावधानी से जाँचें।","ocrProgress":"डिवाइस पर पढ़ना, चरण","ocrCloudTitle":"वैकल्पिक हस्तलिपि पहचान","ocrCloudExplain":"केवल काटी गई पते की छवि Microsoft Azure को भेजी जाएगी। नाम, पहचान नंबर, हस्ताक्षर छिपाएँ। बिना अनुमति संवेदनशील दस्तावेज़ न भेजें।","ocrCloudConsent":"मैं इस अनुरोध के लिए केवल काटी गई पते की छवि बाहरी OCR को भेजने की सहमति देता/देती हूँ।","ocrCloudRun":"हस्तलिपि पहचान आज़माएँ","ocrCloudStatus":"हस्तलिपि पढ़ी जा रही है…","ocrCloudDone":"संभावित परिणाम मिला। सत्यापित करें।","ocrCloudFailed":"हस्तलिपि पहचान उपलब्ध नहीं है। खुद लिखें।","ocrNotVerified":"OCR परिणाम आधिकारिक पता सत्यापन नहीं है।","ocrNewImage":"फ़ोटो बदली गई। फिर से पहचानें।","ocrImageDecodeError":"छवि नहीं खुल सकी। JPEG, PNG या WebP आज़माएँ।"}};
+for(const language of Object.keys(OCR_COPY))OCR_COPY[language].galleryLabel={en:"Choose from photos instead",ko:"사진 보관함에서 선택",zh:"从相册选择",vi:"Chọn từ thư viện ảnh",id:"Pilih dari galeri",hi:"फ़ोटो गैलरी से चुनें"}[language];
 const $=id=>document.getElementById(id);let lang="en",selected=null,photoURL=null,worker=null,drag=null;
-const t=k=>(dict[lang]&&dict[lang][k])||EN[k]||k;
-function translate(){document.documentElement.lang=lang;document.querySelectorAll("[data-i18n]").forEach(n=>n.textContent=t(n.dataset.i18n));}
+const t=k=>(OCR_COPY[lang]&&OCR_COPY[lang][k])||(dict[lang]&&dict[lang][k])||EN[k]||k;
+function translate(){document.documentElement.lang=lang;document.querySelectorAll("[data-i18n]").forEach(n=>n.textContent=t(n.dataset.i18n));if(scanResults?.length)showOcrCandidates(scanResults);}
 $("language").addEventListener("change",e=>{lang=e.target.value;translate();});
 function status(id,value,kind=""){const el=$(id);el.hidden=!value;el.textContent=value||"";el.className="status"+(kind?" "+kind:"");}
-function resetPhoto(){if(photoURL){URL.revokeObjectURL(photoURL);photoURL=null;}$("previewArea").hidden=true;$("photo").value="";status("ocrStatus","");}
-$("photo").addEventListener("change",e=>{const f=e.target.files[0];if(!f)return;resetPhoto();if(!["image/jpeg","image/png","image/webp"].includes(f.type)||f.size>12*1024*1024){status("ocrStatus",t("imageError"),"error");return;}photoURL=URL.createObjectURL(f);$("previewImage").src=photoURL;$("previewArea").hidden=false;const c=$("crop");c.style.cssText="left:10%;top:30%;width:80%;height:36%";});
+
+let scanResults=[],ocrGeneration=0,handwritingEnabled=false;
+function resetPhoto(){
+ ocrGeneration++;
+ if(photoURL){URL.revokeObjectURL(photoURL);photoURL=null;}
+ $("previewArea").hidden=true;$("photo").value="";$("galleryPhoto").value="";
+ $("previewImage").removeAttribute("src");
+ $("ocrCandidates").replaceChildren();$("ocrCandidates").hidden=true;
+ $("cloudConsent").checked=false;$("cloudPanel").hidden=true;
+ scanResults=[];status("ocrStatus","");
+}
+async function installPhoto(file){
+ if(!file)return;
+ resetPhoto();
+ const accepted=["image/jpeg","image/png","image/webp","image/heic","image/heif"];
+ if(!accepted.includes(file.type)&&!/\.(jpe?g|png|webp|heic|heif)$/i.test(file.name||"")){
+  status("ocrStatus",t("imageError"),"error");return;
+ }
+ if(file.size>12*1024*1024){status("ocrStatus",t("imageError"),"error");return;}
+ const gen=ocrGeneration;photoURL=URL.createObjectURL(file);
+ const image=$("previewImage");
+ image.src=photoURL;
+ try{
+  await image.decode();
+  if(gen!==ocrGeneration)return;
+  $("previewArea").hidden=false;
+  const selection=$("crop");selection.style.cssText="left:6%;top:22%;width:88%;height:50%";
+  $("cloudPanel").hidden=!handwritingEnabled;
+  status("ocrStatus",t("ocrNewImage"));
+ }catch(_){if(gen===ocrGeneration){resetPhoto();status("ocrStatus",t("ocrImageDecodeError"),"error");}}
+}
+$("photo").addEventListener("change",e=>{void installPhoto(e.target.files[0]);});
+$("galleryPhoto").addEventListener("change",e=>{void installPhoto(e.target.files[0]);});
 $("removePhoto").addEventListener("click",resetPhoto);
 const crop=$("crop"),frame=$("imageFrame");
-crop.addEventListener("pointerdown",e=>{const r=frame.getBoundingClientRect(),c=crop.getBoundingClientRect();drag={pointer:e.pointerId,x:e.clientX,y:e.clientY,left:(c.left-r.left)/r.width*100,top:(c.top-r.top)/r.height*100,w:c.width/r.width*100,h:c.height/r.height*100,resize:e.clientX>=c.right-36&&e.clientY>=c.bottom-36};crop.setPointerCapture(e.pointerId);e.preventDefault();});
-crop.addEventListener("pointermove",e=>{if(!drag||e.pointerId!==drag.pointer)return;const r=frame.getBoundingClientRect(),dx=(e.clientX-drag.x)/r.width*100,dy=(e.clientY-drag.y)/r.height*100,clamp=(v,min,max)=>Math.max(min,Math.min(max,v));if(drag.resize){crop.style.width=clamp(drag.w+dx,12,100-drag.left)+"%";crop.style.height=clamp(drag.h+dy,10,100-drag.top)+"%";}else{crop.style.left=clamp(drag.left+dx,0,100-drag.w)+"%";crop.style.top=clamp(drag.top+dy,0,100-drag.h)+"%";}});
+crop.addEventListener("pointerdown",e=>{
+ const r=frame.getBoundingClientRect(),c=crop.getBoundingClientRect();
+ drag={pointer:e.pointerId,x:e.clientX,y:e.clientY,left:(c.left-r.left)/r.width*100,top:(c.top-r.top)/r.height*100,w:c.width/r.width*100,h:c.height/r.height*100,resize:e.clientX>=c.right-42&&e.clientY>=c.bottom-42};
+ crop.setPointerCapture(e.pointerId);e.preventDefault();
+});
+crop.addEventListener("pointermove",e=>{
+ if(!drag||e.pointerId!==drag.pointer)return;
+ const r=frame.getBoundingClientRect(),dx=(e.clientX-drag.x)/r.width*100,dy=(e.clientY-drag.y)/r.height*100;
+ const clamp=(v,min,max)=>Math.max(min,Math.min(max,v));
+ if(drag.resize){crop.style.width=clamp(drag.w+dx,12,100-drag.left)+"%";crop.style.height=clamp(drag.h+dy,10,100-drag.top)+"%";}
+ else{crop.style.left=clamp(drag.left+dx,0,100-drag.w)+"%";crop.style.top=clamp(drag.top+dy,0,100-drag.h)+"%";}
+});
 ["pointerup","pointercancel","lostpointercapture"].forEach(ev=>crop.addEventListener(ev,()=>drag=null));
-function imageRegion(){const img=$("previewImage");const c=document.createElement("canvas"),l=parseFloat(crop.style.left)||10,top=parseFloat(crop.style.top)||30,w=parseFloat(crop.style.width)||80,h=parseFloat(crop.style.height)||36;c.width=Math.round(img.naturalWidth*w/100);c.height=Math.round(img.naturalHeight*h/100);const x=c.getContext("2d");x.fillStyle="#fff";x.fillRect(0,0,c.width,c.height);x.drawImage(img,img.naturalWidth*l/100,img.naturalHeight*top/100,img.naturalWidth*w/100,img.naturalHeight*h/100,0,0,c.width,c.height);return c;}
-function bestLine(text){const lines=text.split(/\r?\n/).map(x=>x.trim().replace(/\s+/g," ")).filter(Boolean);const score=s=>(/[가-힣]/.test(s)?4:0)+(/\d/.test(s)?3:0)+(/(로|길|동|시|구|읍|면|리)/.test(s)?5:0)+Math.min(3,s.length/15);return lines.sort((a,b)=>score(b)-score(a))[0]?.slice(0,150)||"";}
-$("runOcr").addEventListener("click",async()=>{const btn=$("runOcr"),img=$("previewImage");if(!img.naturalWidth)return;btn.disabled=true;status("ocrStatus",t("working"));try{if(!window.Tesseract?.createWorker)throw Error("Tesseract unavailable");worker=await window.Tesseract.createWorker("kor+eng",1,{logger:progress=>{if(progress.status==="recognizing text")status("ocrStatus",t("working")+" "+Math.round(progress.progress*100)+"%");}});const result=await worker.recognize(imageRegion());const line=bestLine(result.data.text||"");if(!line)throw Error("No text");$("keyword").value=line;status("ocrStatus",t("success"),"ok");$("keyword").focus();}catch(_){status("ocrStatus",t("ocrError"),"error");}finally{if(worker){try{await worker.terminate();}catch(_){}worker=null;}btn.disabled=false;}});
+function imageRegion(){
+ const img=$("previewImage");
+ const l=Math.max(0,Math.min(100,parseFloat(crop.style.left)||6));
+ const top=Math.max(0,Math.min(100,parseFloat(crop.style.top)||22));
+ const w=Math.max(1,Math.min(100-l,parseFloat(crop.style.width)||88));
+ const h=Math.max(1,Math.min(100-top,parseFloat(crop.style.height)||50));
+ const pixelW=Math.max(1,Math.round(img.naturalWidth*w/100));
+ const pixelH=Math.max(1,Math.round(img.naturalHeight*h/100));
+ const ratio=Math.min(1,1900/pixelW,1900/pixelH,Math.sqrt(2300000/(pixelW*pixelH)));
+ const c=document.createElement("canvas");
+ c.width=Math.max(1,Math.round(pixelW*ratio));
+ c.height=Math.max(1,Math.round(pixelH*ratio));
+ const x=c.getContext("2d",{willReadFrequently:true});
+ if(!x)throw Error("Canvas unsupported");
+ x.fillStyle="#fff";x.fillRect(0,0,c.width,c.height);
+ x.drawImage(img,img.naturalWidth*l/100,img.naturalHeight*top/100,pixelW,pixelH,0,0,c.width,c.height);
+ return c;
+}
+function variation(canvas,mode){
+ if(mode==="original")return canvas;
+ const image=document.createElement("canvas");image.width=canvas.width;image.height=canvas.height;
+ const context=image.getContext("2d",{willReadFrequently:true});
+ const input=canvas.getContext("2d",{willReadFrequently:true}).getImageData(0,0,canvas.width,canvas.height);
+ const output=window.JusoOCRCore.enhancePixels(input.data,canvas.width,canvas.height,mode);
+ input.data.set(output);context.putImageData(input,0,0);return image;
+}
+function showOcrCandidates(items){
+ scanResults=items;
+ const container=$("ocrCandidates");container.replaceChildren();container.hidden=!items.length;
+ if(!items.length)return;
+ const title=document.createElement("strong");title.className="ocr-list-title";title.textContent=t("ocrCandidatesTitle");
+ const help=document.createElement("p");help.className="fine";help.textContent=t("ocrHint");
+ container.append(title,help);
+ items.forEach((item,i)=>{
+  const button=document.createElement("button");button.type="button";button.className="candidate ocr-candidate";
+  const number=document.createElement("span");number.className="candidate-no";number.textContent=String(i+1).padStart(2,"0");
+  const word=document.createElement("b");word.textContent=item.text;
+  const label=document.createElement("small");label.textContent=t("ocrOption")+(i===0?" · "+t("ocrLowConfidence"):"");
+  button.append(number,word,label);
+  button.addEventListener("click",()=>{
+   $("keyword").value=item.text;status("ocrStatus",t("ocrNotVerified"),"ok");
+   $("keyword").focus();$("keyword").scrollIntoView({behavior:"smooth",block:"center"});
+  });
+  container.append(button);
+ });
+}
+function candidateFromRecords(records){
+ if(!window.JusoOCRCore)throw Error("OCR parser unavailable");
+ return window.JusoOCRCore.extractCandidates(records,6);
+}
+$("runOcr").addEventListener("click",async()=>{
+ const btn=$("runOcr"),img=$("previewImage");
+ if(!img.naturalWidth||!window.Tesseract?.createWorker||!window.JusoOCRCore){status("ocrStatus",t("ocrError"),"error");return;}
+ const gen=ocrGeneration;btn.disabled=true;$("runOcr").setAttribute("aria-busy","true");
+ showOcrCandidates([]);
+ try{
+  const original=imageRegion();
+  const passes=["original","contrast","binary"],records=[];
+  status("ocrStatus",t("ocrProgress")+" 1/3");
+  worker=await window.Tesseract.createWorker("kor+eng",1,{logger:progress=>{
+    if(progress.status==="recognizing text"&&gen===ocrGeneration){
+     const stage=Math.max(1,records.length+1);
+     status("ocrStatus",t("ocrProgress")+" "+stage+"/3 · "+Math.round((progress.progress||0)*100)+"%");
+    }
+  }});
+  if(typeof worker.setParameters==="function")await worker.setParameters({tessedit_pageseg_mode:"6",preserve_interword_spaces:"1"});
+  for(let i=0;i<passes.length;i++){
+   if(gen!==ocrGeneration)break;
+   status("ocrStatus",t("ocrProgress")+" "+(i+1)+"/3");
+   const result=await worker.recognize(variation(original,passes[i]));
+   records.push({text:result.data.text||"",confidence:result.data.confidence||0,source:passes[i]});
+   const current=candidateFromRecords(records);
+   // A second pass typically catches faint print. Reserve binary pass for uncertain handwriting.
+   if(i===1&&current[0]?.score>=83&&current[0]?.confidence>=76)break;
+  }
+  if(gen!==ocrGeneration)return;
+  const results=candidateFromRecords(records);
+  showOcrCandidates(results);
+  if(results.length){
+   $("keyword").value=results[0].text;status("ocrStatus",t("ocrLowConfidence"));
+  }else{
+   status("ocrStatus",t("ocrNoCandidates"),"error");
+  }
+ }catch(_){if(gen===ocrGeneration)status("ocrStatus",t("ocrError"),"error");}
+ finally{
+  if(worker){try{await worker.terminate();}catch(_){}worker=null;}
+  btn.disabled=false;btn.removeAttribute("aria-busy");
+ }
+});
+async function loadHandwritingStatus(){
+ try{
+  const response=await fetch("/api/handwriting-status",{cache:"no-store",credentials:"omit"});
+  const body=await response.json();
+  handwritingEnabled=response.ok&&body.enabled===true;
+ }catch(_){handwritingEnabled=false;}
+ $("cloudPanel").hidden=!(handwritingEnabled&&photoURL);
+}
+$("cloudConsent").addEventListener("change",e=>{$("cloudRun").disabled=!e.target.checked;});
+$("cloudRun").addEventListener("click",async()=>{
+ if(!handwritingEnabled||!$("cloudConsent").checked||!$("previewImage").naturalWidth)return;
+ const button=$("cloudRun");button.disabled=true;
+ const gen=ocrGeneration;status("ocrStatus",t("ocrCloudStatus"));
+ try{
+  const source=imageRegion();
+  const jpeg=source.toDataURL("image/jpeg",0.75);
+  if(jpeg.length>2050000){status("ocrStatus",t("imageError"),"error");return;}
+  const response=await fetch("/api/handwriting",{
+   method:"POST",headers:{"Content-Type":"application/json","X-OCR-Consent":"true"},
+   body:JSON.stringify({image:jpeg}),credentials:"omit",cache:"no-store"
+  });
+  const data=await response.json();
+  if(!response.ok)throw Error(data.code||"HANDWRITING_FAILED");
+  if(gen!==ocrGeneration)return;
+  const fromCloud=(Array.isArray(data.lines)?data.lines:[]).map(x=>({text:x.text||"",confidence:typeof x.confidence==="number"?x.confidence:35,source:"cloud"}));
+  const merged=candidateFromRecords([...fromCloud,...scanResults.map(x=>({text:x.text,confidence:x.confidence||25,source:x.source}))]);
+  showOcrCandidates(merged);
+  if(merged.length){$("keyword").value=merged[0].text;status("ocrStatus",t("ocrCloudDone"),"ok");}
+  else status("ocrStatus",t("ocrNoCandidates"),"error");
+ }catch(_){if(gen===ocrGeneration)status("ocrStatus",t("ocrCloudFailed"),"error");}
+ finally{
+  // Consent must be granted anew for any subsequent upload.
+  $("cloudConsent").checked=false;button.disabled=true;
+ }
+});
+void loadHandwritingStatus();
+
 function clear(){selected=null;$("selected").hidden=true;$("candidates").hidden=true;$("candidates").replaceChildren();$("manualHelp").hidden=true;$("empty").hidden=false;}
 function choose(result){selected=result;$("candidates").hidden=true;$("selected").hidden=false;$("empty").hidden=true;$("krResult").textContent=result.roadAddr;$("enResult").textContent=result.engAddr||"—";$("zipResult").textContent=t("postal")+": "+result.zipNo;const extra=[result.buildingName,result.jibunAddr].filter(Boolean).join(" · ");const ex=$("extraResult");if(ex){ex.textContent=extra;ex.hidden=!extra;}status("searchStatus","");}
 $("search").addEventListener("click",async()=>{const keyword=$("keyword").value.trim();clear();if(keyword.length<2){status("searchStatus",t("enter"),"error");return;}const btn=$("search");btn.disabled=true;status("searchStatus",t("searching"));try{const res=await fetch("/api/address",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({keyword}),cache:"no-store",credentials:"omit"});const data=await res.json();if(data.code==="NOT_CONFIGURED"){status("searchStatus",t("unavailable"),"error");$("manualHelp").hidden=false;return;}if(data.code==="SENSITIVE_QUERY"){status("searchStatus",t("sensitive"),"error");return;}if(data.code==="JUSO_AUTH_FAILED"){status("searchStatus",t("authProblem"),"error");return;}if(data.code==="JUSO_QUERY_REJECTED"){status("searchStatus",t("queryRejected"),"error");return;}if(data.code==="RATE_LIMITED"){status("searchStatus",t("rateLimited"),"error");return;}if(data.code==="UPSTREAM_TIMEOUT"){status("searchStatus",t("timeout"),"error");return;}if(!res.ok){status("searchStatus",t("providerError"),"error");return;}const results=Array.isArray(data.results)?data.results:[];if(!results.length){status("searchStatus",t("none"));return;}status("searchStatus",t("select"));$("empty").hidden=true;$("candidates").hidden=false;results.forEach(r=>{const b=document.createElement("button");b.type="button";b.className="candidate";const title=document.createElement("b"),subtitle=document.createElement("small");title.textContent=r.roadAddr;subtitle.textContent=[r.buildingName,r.engAddr,r.jibunAddr,r.zipNo].filter(Boolean).join(" · ");b.append(title,subtitle);b.addEventListener("click",()=>choose(r));$("candidates").append(b);});}catch(_){status("searchStatus",t("network"),"error");$("manualHelp").hidden=false;}finally{btn.disabled=false;}});
