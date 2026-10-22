@@ -64,7 +64,7 @@ function confidenceHint(candidates){
 }
 function enhancePixels(input,width,height,mode="contrast"){
  if(!Number.isInteger(width)||!Number.isInteger(height)||width<1||height<1||width*height>9000000||input.length!==width*height*4)throw Error("Invalid pixel buffer");
- if(!["grayscale","contrast","binary"].includes(mode))throw Error("Unknown preprocessing");
+ if(!["grayscale","contrast","binary","sharpen"].includes(mode))throw Error("Unknown preprocessing");
  const out=new Uint8ClampedArray(input.length),gray=new Uint8Array(width*height);
  let avg=0;
  for(let i=0;i<gray.length;i++){
@@ -91,11 +91,27 @@ function enhancePixels(input,width,height,mode="contrast"){
    let value;
    if(mode==="grayscale") value=v;
    else if(mode==="contrast") value=Math.max(0,Math.min(255,(v-local)*1.75+Math.max(188,Math.min(235,local+15))));
+   else if(mode==="sharpen") value=Math.max(0,Math.min(255,v*1.95-local*0.95+15));
    else value=v<local-10?22:247; // adaptive threshold; best only as fallback
    out[p]=value;out[p+1]=value;out[p+2]=value;out[p+3]=255;
   }
  }
  return out;
 }
-return {normalizeText,sanitizeLine,scoreLine,extractCandidates,confidenceHint,enhancePixels};
+function imageQuality(input,width,height){
+ if(!Number.isInteger(width)||!Number.isInteger(height)||width<1||height<1||input.length!==width*height*4)throw Error("Invalid pixel buffer");
+ const step=Math.max(1,Math.floor(Math.min(width,height)/300));
+ let total=0,count=0,dark=0,light=0;
+ for(let y=step;y<height;y+=step)for(let x=step;x<width;x+=step){
+  const p=(y*width+x)*4,q=((y-step)*width+x)*4,z=(y*width+x-step)*4;
+  const lum=k=>(input[k]*299+input[k+1]*587+input[k+2]*114)/1000;
+  const v=lum(p);
+  total+=Math.abs(v-lum(q))+Math.abs(v-lum(z));count++;
+  if(v<80)dark++;
+  if(v>215)light++;
+ }
+ const edge=count?total/count:0;
+ return {edgeScore:Math.round(edge*10)/10,likelyBlurry:edge<8,likelyLowContrast:(dark/count)<0.005&&(light/count)<0.06};
+}
+return {normalizeText,sanitizeLine,scoreLine,extractCandidates,confidenceHint,enhancePixels,imageQuality};
 });

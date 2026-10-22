@@ -69,7 +69,9 @@ function imageRegion(){
  const h=Math.max(1,Math.min(100-top,parseFloat(crop.style.height)||50));
  const pixelW=Math.max(1,Math.round(img.naturalWidth*w/100));
  const pixelH=Math.max(1,Math.round(img.naturalHeight*h/100));
- const ratio=Math.min(1,1900/pixelW,1900/pixelH,Math.sqrt(2300000/(pixelW*pixelH)));
+ // Upscale small address crops before recognition; never exceed mobile memory bounds.
+ const wanted=Math.max(1,Math.min(2.1,1100/Math.max(pixelW,pixelH)));
+ const ratio=Math.min(wanted,1900/pixelW,1900/pixelH,Math.sqrt(2300000/(pixelW*pixelH)));
  const c=document.createElement("canvas");
  c.width=Math.max(1,Math.round(pixelW*ratio));
  c.height=Math.max(1,Math.round(pixelH*ratio));
@@ -118,23 +120,25 @@ $("runOcr").addEventListener("click",async()=>{
  showOcrCandidates([]);
  try{
   const original=imageRegion();
-  const passes=["original","contrast","binary"],records=[];
-  status("ocrStatus",t("ocrProgress")+" 1/3");
+  const passes=["original","sharpen","contrast","binary"],records=[];
+  status("ocrStatus",t("ocrProgress")+" 1/4");
   worker=await window.Tesseract.createWorker("kor+eng",1,{logger:progress=>{
     if(progress.status==="recognizing text"&&gen===ocrGeneration){
      const stage=Math.max(1,records.length+1);
-     status("ocrStatus",t("ocrProgress")+" "+stage+"/3 · "+Math.round((progress.progress||0)*100)+"%");
+     status("ocrStatus",t("ocrProgress")+" "+stage+"/4 · "+Math.round((progress.progress||0)*100)+"%");
     }
   }});
   if(typeof worker.setParameters==="function")await worker.setParameters({tessedit_pageseg_mode:"6",preserve_interword_spaces:"1"});
   for(let i=0;i<passes.length;i++){
    if(gen!==ocrGeneration)break;
-   status("ocrStatus",t("ocrProgress")+" "+(i+1)+"/3");
+   status("ocrStatus",t("ocrProgress")+" "+(i+1)+"/4");
+   if(typeof worker.setParameters==="function"&&i===1)await worker.setParameters({tessedit_pageseg_mode:"7"});
+   if(typeof worker.setParameters==="function"&&i===2)await worker.setParameters({tessedit_pageseg_mode:"6"});
    const result=await worker.recognize(variation(original,passes[i]));
    records.push({text:result.data.text||"",confidence:result.data.confidence||0,source:passes[i]});
    const current=candidateFromRecords(records);
    // A second pass typically catches faint print. Reserve binary pass for uncertain handwriting.
-   if(i===1&&current[0]?.score>=83&&current[0]?.confidence>=76)break;
+   if(i>=1&&current[0]?.score>=88&&current[0]?.confidence>=82)break;
   }
   if(gen!==ocrGeneration)return;
   const results=candidateFromRecords(records);
