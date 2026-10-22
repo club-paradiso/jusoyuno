@@ -23,7 +23,7 @@ test("Handwriting-like multi-line candidate joins address tokens only",()=>{
 });
 test("Pixel preprocessing transforms grayscale, keeps sizes and alpha",()=>{
  const source=new Uint8ClampedArray([250,250,250,255,12,14,18,255,150,90,90,255,230,230,230,255]);
- for(const mode of ["grayscale","contrast","binary"]){
+ for(const mode of ["grayscale","contrast","binary","sharpen"]){
    const result=core.enhancePixels(source,2,2,mode);
    assert.equal(result.length,16);assert.equal(result[3],255);assert.equal(result[7],255);
    assert.equal(result[0],result[1]);assert.equal(result[1],result[2]);
@@ -33,4 +33,16 @@ test("Pixel preprocessing transforms grayscale, keeps sizes and alpha",()=>{
 test("Low confidence handwriting cannot be presented as verified",()=>{
  assert.equal(core.confidenceHint([{text:"제주시 중앙로 1",score:61,confidence:43}]),"low");
  assert.equal(core.confidenceHint([{text:"제주시 중앙로 1",score:96,confidence:95}]),"medium");
+});
+test("sharpen enhancement preserves pixel shape and edge quality diagnostics",()=>{
+ const pixels=new Uint8ClampedArray(12*12*4);
+ for(let y=0;y<12;y++)for(let x=0;x<12;x++){const k=(y*12+x)*4,ink=(x%4===0||y%4===0)?0:255;pixels.set([ink,ink,ink,255],k);}
+ const sharper=core.enhancePixels(pixels,12,12,"sharpen");
+ assert.equal(sharper.length,pixels.length);
+ const metric=core.imageQuality(pixels,12,12);
+ assert.ok(metric.edgeScore>8);
+ assert.equal(metric.likelyBlurry,false);
+ const blank=new Uint8ClampedArray(12*12*4).fill(255);
+ const blankQuality=core.imageQuality(blank,12,12);
+ assert.equal(blankQuality.likelyBlurry,true);
 });
