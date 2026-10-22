@@ -24,10 +24,13 @@ The independent backup project `prj_e02QbOEHh7R3vchx7aO8p90AZ1sc` is not the one
 
 - Browser POST `/api/address` with JSON `{"keyword":"제주시 중앙로 1"}`.
 - Backend POST to `https://business.juso.go.kr/addrlink/addrLinkApi.do` using URL-encoded `confmKey`, `keyword`, `resultType=json`, `currentPage`, `countPerPage`.
-- API results: `roadAddrPart1`, `engAddr`, `zipNo`, `jibunAddr`, `bdNm`.
+- API results: `roadAddr` (full road address, preferred), `roadAddrPart1`, `roadAddrPart2`, `engAddr`, `zipNo`, `jibunAddr`, `bdNm`. The standard search response already contains the English address (`engAddr`); no separate English-search API is used.
+- Responses also include the official `totalCount`; at most 8 candidates are returned per search.
 - Only base address is officially matched; building/unit fields are user-provided, not proof of residence.
 - `GET /api/address-status` returns `configured` without ever revealing the secret; this is only presence, not validity.
-- Normalized errors: `NOT_CONFIGURED` (503); `JUSO_AUTH_FAILED` (503); `JUSO_QUERY_REJECTED` (422); `UPSTREAM_TIMEOUT` (504); `UPSTREAM_UNAVAILABLE` (502).
+- Normalized errors: `NOT_CONFIGURED` (503); `JUSO_AUTH_FAILED` (503); `JUSO_QUERY_REJECTED` (422); `UPSTREAM_TIMEOUT` (504); `UPSTREAM_UNAVAILABLE` / `UPSTREAM_BAD_RESPONSE` (502); `RATE_LIMITED` (429, with `Retry-After: 60`); `INVALID_QUERY` / `SENSITIVE_QUERY` (400); `REQUEST_TOO_LARGE` (413); `UNSUPPORTED_MEDIA_TYPE` (415); `METHOD_NOT_ALLOWED` (405).
+- Upstream error-code mapping follows the official search-API guide. `E0001` ("승인되지 않은 KEY 입니다") was confirmed live against `business.juso.go.kr` on 2026-10-22: an invalid key returns `E0001`, which this proxy maps to `JUSO_AUTH_FAILED`.
+- Abuse control: best-effort per-client rate limit of 30 searches/minute, keyed by a SHA-256 hash of the client IP inside each serverless instance. Instances do not share state, so this blunts bursts but is not a distributed quota; add a shared store or Vercel Firewall rule before public roll-out. Address queries and raw IPs are never logged.
 
 **Acceptance gates:** Use synthetic/sample addresses only. After supplying the key, test one exact road name/number, one building-name query, empty response, invalid-key handling, and mobile user flow. Never send a full scanned lease document to the backend. Searches may still include personal location information, so avoid request logging and review Vercel and upstream retention policies.
 
