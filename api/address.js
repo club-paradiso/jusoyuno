@@ -9,6 +9,7 @@ async function handler(req,res){
   if(!body||typeof body!=="object"||Array.isArray(body)||typeof body.keyword!=="string")return res.status(400).json({code:"INVALID_QUERY"});
   const keyword=body.keyword.trim();
   if(keyword.length<2||keyword.length>150||/[\r\n<>]/.test(keyword))return res.status(400).json({code:"INVALID_QUERY"});
+  if(/(?:\b\d{6}[-\s]?\d{7}\b|\b01[016789][-.\s]?\d{3,4}[-.\s]?\d{4}\b|[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,})/i.test(keyword))return res.status(400).json({code:"SENSITIVE_QUERY"});
   const key=process.env.JUSO_API_KEY;
   if(!key)return res.status(503).json({code:"NOT_CONFIGURED"});
   try{
