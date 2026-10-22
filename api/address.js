@@ -37,8 +37,8 @@ async function handler(req,res){
   if(!payload||typeof payload!=="object"||Array.isArray(payload)||
      typeof payload.keyword!=="string")return send(res,400,"INVALID_QUERY");
   const keyword=payload.keyword.trim().replace(/\s+/gu," ");
-  if(invalidKeyword(keyword))return send(res,400,"INVALID_QUERY");
   if(RESTRICTED.test(keyword))return send(res,400,"SENSITIVE_QUERY");
+  if(invalidKeyword(keyword))return send(res,400,"INVALID_QUERY");
 
   const key=String(process.env.JUSO_API_KEY||"").trim();
   if(!key)return send(res,503,"NOT_CONFIGURED");
