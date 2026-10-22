@@ -46,7 +46,7 @@ async function handler(req,res){
  if(req.headers?.["content-type"]&&!/^application\/json(?:\s*;|$)/i.test(req.headers["content-type"]))return send(res,415,{code:"INVALID_IMAGE"});
  if(Number(req.headers?.["content-length"]||0)>2250000)return send(res,413,{code:"IMAGE_TOO_LARGE"});
  if(rateLimited(req)){res.setHeader("Retry-After","60");return send(res,429,{code:"RATE_LIMITED"});}
- const body=typeof req.body==="string"?JSON.parse(req.body):req.body;
+ let body;try{body=typeof req.body==="string"?JSON.parse(req.body):req.body;}catch(_){return send(res,400,{code:"INVALID_IMAGE"});}
  if(!body||typeof body.image!=="string"||!/^data:image\/jpeg;base64,[A-Za-z0-9+/=]+$/.test(body.image)||body.image.length>2050000)return send(res,400,{code:"INVALID_IMAGE"});
  const base64=body.image.slice("data:image/jpeg;base64,".length);
  const bytes=Buffer.from(base64,"base64");

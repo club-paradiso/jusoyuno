@@ -86,7 +86,7 @@ function enhancePixels(input,width,height,mode="contrast"){
   const y0=Math.max(0,y-radius),y1=Math.min(height-1,y+radius);
   for(let x=0;x<width;x++){
    const x0=Math.max(0,x-radius),x1=Math.min(width-1,x+radius);
-   const local=(integral[(y1+1)*stride+x1+1]-integral[y0*stride+x1+1]-integral[(y1+1)*stride+x0]+integral[y0*stride+x0])/((x1-y0*0-x0+1)*(y1-y0+1));
+   const local=(integral[(y1+1)*stride+x1+1]-integral[y0*stride+x1+1]-integral[(y1+1)*stride+x0]+integral[y0*stride+x0])/((x1-x0+1)*(y1-y0+1));
    const v=gray[y*width+x],p=(y*width+x)*4;
    let value;
    if(mode==="grayscale") value=v;
