@@ -8,6 +8,7 @@ const HI={hero:"कोरियाई पता लिखना कठिन ह
 const dict={en:EN,ko:KO,zh:ZH,vi:VI,id:ID,hi:HI};
 const OCR_COPY={"en":{"ocrCandidatesTitle":"Possible address readings (NOT VERIFIED)","ocrHint":"Handwriting and faint text can be misread. Choose or edit an option, then check against official address records.","ocrOption":"Use this reading","ocrNoCandidates":"We could not reliably read an address. Try a clearer, closer photo or type it.","ocrLowConfidence":"Low-confidence reading. Carefully correct errors before searching.","ocrProgress":"Reading locally, pass","ocrCloudTitle":"Optional handwriting recognition","ocrCloudExplain":"Only the cropped address image will be sent to Microsoft Azure for recognition. This transfers image data outside your device. Cover names, ID numbers and signatures first. Do not use real sensitive documents without authorization.","ocrCloudConsent":"I agree to send ONLY the cropped address image to the external OCR provider for this request.","ocrCloudRun":"Try handwriting reader","ocrCloudStatus":"Handwriting reader is processing the cropped image…","ocrCloudDone":"Handwriting OCR returned possible text. Check and correct it before official address search.","ocrCloudFailed":"Handwriting recognition was unavailable. Continue with local text or type the address.","ocrNotVerified":"OCR guesses are not official address verification.","ocrNewImage":"Image updated. Run recognition again.","ocrImageDecodeError":"This image cannot be opened on your device. Try JPEG, PNG or WebP."},"ko":{"ocrCandidatesTitle":"주소 인식 후보 (미검증)","ocrHint":"악필·흐린 글씨는 잘못 인식될 수 있습니다. 후보를 선택하거나 수정한 뒤 공식 주소를 검색하세요.","ocrOption":"이 후보 사용","ocrNoCandidates":"주소를 충분히 인식하지 못했습니다. 주소 부분을 더 크게 다시 촬영하거나 직접 입력하세요.","ocrLowConfidence":"정확도가 낮은 후보입니다. 검색 전 오타를 꼭 수정하세요.","ocrProgress":"기기 내부 인식 중 · 단계","ocrCloudTitle":"선택적 손글씨 인식","ocrCloudExplain":"주소로 선택한 사진 영역만 Microsoft Azure로 전송합니다. 이미지는 휴대전화를 벗어나므로 이름·등록번호·서명을 미리 가리세요. 기관 승인 없이 민감한 실제 서류는 사용하지 마세요.","ocrCloudConsent":"이번 요청에 한해 잘라낸 주소 이미지의 외부 OCR 전송에 동의합니다.","ocrCloudRun":"손글씨 전용 인식 시도","ocrCloudStatus":"잘라낸 주소 이미지를 손글씨 엔진이 인식하는 중…","ocrCloudDone":"손글씨 인식 후보를 받았습니다. 공식 주소 검색 전 직접 확인하세요.","ocrCloudFailed":"손글씨 인식을 이용할 수 없습니다. 기존 결과를 수정하거나 직접 입력하세요.","ocrNotVerified":"OCR 후보는 공식 주소 확인 결과가 아닙니다.","ocrNewImage":"사진이 변경됐습니다. 다시 인식하세요.","ocrImageDecodeError":"기기에서 이미지를 열 수 없습니다. JPEG·PNG·WebP로 다시 시도하세요."},"zh":{"ocrCandidatesTitle":"可能的地址识别结果（未经验证）","ocrHint":"潦草手写和模糊文字可能识别错误。请选择并修改，再查询官方地址。","ocrOption":"使用此结果","ocrNoCandidates":"无法可靠识别地址。请拍摄更清晰的近照或手动输入。","ocrLowConfidence":"识别可信度较低，请仔细核对。","ocrProgress":"本地识别，第","ocrCloudTitle":"可选手写识别","ocrCloudExplain":"仅选中的地址区域将发送至 Microsoft Azure。请遮盖姓名、证件号码和签名；未经许可请勿上传敏感文件。","ocrCloudConsent":"我同意仅将裁剪后的地址图片发送至外部识别服务完成本次请求。","ocrCloudRun":"尝试手写识别","ocrCloudStatus":"正在识别裁剪后的图片…","ocrCloudDone":"已获取手写识别候选，请自行核对。","ocrCloudFailed":"手写识别不可用，请手动输入。","ocrNotVerified":"OCR识别不等于官方地址核实。","ocrNewImage":"图片已更换，请重新识别。","ocrImageDecodeError":"无法打开此图片。请使用 JPEG、PNG 或 WebP。"},"vi":{"ocrCandidatesTitle":"Các địa chỉ nhận dạng được (CHƯA XÁC MINH)","ocrHint":"Chữ viết tay và ảnh mờ dễ bị đọc sai. Chọn hoặc sửa trước khi tra cứu chính thức.","ocrOption":"Dùng kết quả này","ocrNoCandidates":"Không đọc được địa chỉ rõ ràng. Hãy chụp gần hơn hoặc nhập thủ công.","ocrLowConfidence":"Độ tin cậy thấp. Kiểm tra kỹ trước khi tìm.","ocrProgress":"Nhận dạng trên máy, lượt","ocrCloudTitle":"Nhận dạng chữ viết tay tùy chọn","ocrCloudExplain":"Chỉ phần ảnh địa chỉ đã cắt được gửi tới Microsoft Azure. Che tên, số định danh và chữ ký. Không gửi tài liệu nhạy cảm khi chưa được phép.","ocrCloudConsent":"Tôi đồng ý gửi CHỈ phần ảnh địa chỉ đã cắt tới dịch vụ OCR bên ngoài cho lần này.","ocrCloudRun":"Thử đọc chữ viết tay","ocrCloudStatus":"Đang nhận dạng chữ viết tay…","ocrCloudDone":"Đã có kết quả OCR. Hãy kiểm tra lại.","ocrCloudFailed":"Không thể nhận dạng chữ viết tay. Hãy nhập thủ công.","ocrNotVerified":"Kết quả OCR không phải xác minh địa chỉ chính thức.","ocrNewImage":"Ảnh đã thay đổi. Vui lòng nhận dạng lại.","ocrImageDecodeError":"Không mở được ảnh. Hãy thử JPEG, PNG hoặc WebP."},"id":{"ocrCandidatesTitle":"Kemungkinan hasil baca alamat (BELUM DIVERIFIKASI)","ocrHint":"Tulisan tangan dan foto buram mudah salah dibaca. Pilih atau perbaiki sebelum mencari alamat resmi.","ocrOption":"Gunakan hasil ini","ocrNoCandidates":"Alamat tidak terbaca dengan yakin. Ambil foto lebih dekat atau ketik sendiri.","ocrLowConfidence":"Keyakinan rendah. Periksa dan perbaiki.","ocrProgress":"Membaca secara lokal, tahap","ocrCloudTitle":"Pengenalan tulisan tangan opsional","ocrCloudExplain":"Hanya gambar alamat yang dipotong dikirim ke Microsoft Azure. Tutupi nama, nomor identitas, dan tanda tangan. Jangan unggah dokumen sensitif tanpa izin.","ocrCloudConsent":"Saya setuju mengirim HANYA gambar alamat yang dipotong ke penyedia OCR eksternal untuk permintaan ini.","ocrCloudRun":"Coba baca tulisan tangan","ocrCloudStatus":"Mengenali tulisan tangan…","ocrCloudDone":"Hasil tulisan tangan diterima. Periksa lagi.","ocrCloudFailed":"Pengenalan tulisan tangan tidak tersedia. Silakan ketik.","ocrNotVerified":"Hasil OCR bukan verifikasi alamat resmi.","ocrNewImage":"Foto berubah. Jalankan OCR lagi.","ocrImageDecodeError":"Gambar tidak dapat dibuka. Gunakan JPEG, PNG, atau WebP."},"hi":{"ocrCandidatesTitle":"संभावित पता पहचान (असत्यापित)","ocrHint":"अस्पष्ट हस्तलिपि गलत पढ़ी जा सकती है। आधिकारिक खोज से पहले चुनें या सुधारें।","ocrOption":"यह पाठ उपयोग करें","ocrNoCandidates":"पता स्पष्ट नहीं पढ़ा जा सका। पास से फ़ोटो लें या लिखें।","ocrLowConfidence":"विश्वास कम है। खोजने से पहले सावधानी से जाँचें।","ocrProgress":"डिवाइस पर पढ़ना, चरण","ocrCloudTitle":"वैकल्पिक हस्तलिपि पहचान","ocrCloudExplain":"केवल काटी गई पते की छवि Microsoft Azure को भेजी जाएगी। नाम, पहचान नंबर, हस्ताक्षर छिपाएँ। बिना अनुमति संवेदनशील दस्तावेज़ न भेजें।","ocrCloudConsent":"मैं इस अनुरोध के लिए केवल काटी गई पते की छवि बाहरी OCR को भेजने की सहमति देता/देती हूँ।","ocrCloudRun":"हस्तलिपि पहचान आज़माएँ","ocrCloudStatus":"हस्तलिपि पढ़ी जा रही है…","ocrCloudDone":"संभावित परिणाम मिला। सत्यापित करें।","ocrCloudFailed":"हस्तलिपि पहचान उपलब्ध नहीं है। खुद लिखें।","ocrNotVerified":"OCR परिणाम आधिकारिक पता सत्यापन नहीं है।","ocrNewImage":"फ़ोटो बदली गई। फिर से पहचानें।","ocrImageDecodeError":"छवि नहीं खुल सकी। JPEG, PNG या WebP आज़माएँ।"}};
 for(const language of Object.keys(OCR_COPY))OCR_COPY[language].galleryLabel={en:"Choose from photos instead",ko:"사진 보관함에서 선택",zh:"从相册选择",vi:"Chọn từ thư viện ảnh",id:"Pilih dari galeri",hi:"फ़ोटो गैलरी से चुनें"}[language];
+for(const language of Object.keys(OCR_COPY))OCR_COPY[language].matchCheck={en:"One official address matched your photo. Check it against your document.",ko:"사진과 일치하는 공식 주소 1건을 찾았습니다. 서류와 같은지 확인하세요.",zh:"找到1个与照片匹配的官方地址，请与文件核对。",vi:"Tìm thấy 1 địa chỉ chính thức khớp với ảnh. Hãy đối chiếu với giấy tờ.",id:"Ditemukan 1 alamat resmi yang cocok. Cocokkan dengan dokumen Anda.",hi:"फ़ोटो से मेल खाता 1 आधिकारिक पता मिला। अपने दस्तावेज़ से मिलाएँ।"}[language];
 for(const language of Object.keys(OCR_COPY))OCR_COPY[language].ocrLoading={en:"Preparing the Korean text reader (first time only, a few MB)",ko:"한국어 인식 엔진 준비 중 (처음 한 번만, 몇 MB)",zh:"正在准备韩文识别引擎（仅首次，约几MB）",vi:"Đang chuẩn bị bộ đọc tiếng Hàn (chỉ lần đầu, vài MB)",id:"Menyiapkan pembaca teks Korea (hanya pertama kali, beberapa MB)",hi:"कोरियाई टेक्स्ट रीडर तैयार हो रहा है (केवल पहली बार, कुछ MB)"}[language];
 const $=id=>document.getElementById(id);let lang="en",selected=null,photoURL=null,drag=null;
 const t=k=>(OCR_COPY[lang]&&OCR_COPY[lang][k])||(dict[lang]&&dict[lang][k])||EN[k]||k;
@@ -124,8 +125,12 @@ function onOcrProgress(progress){
 }
 function getWorker(){
  if(!workerPromise){
-  workerPromise=window.Tesseract.createWorker("kor",1,{logger:onOcrProgress})
-   .catch(error=>{workerPromise=null;throw error;});
+  const loading=window.Tesseract.createWorker("kor",1,{logger:onOcrProgress});
+  // A worker that fails while loading (e.g. blocked WebAssembly) never settles; give up instead of spinning forever.
+  const timeout=new Promise((_,reject)=>setTimeout(()=>reject(Error("OCR engine load timed out")),90000));
+  workerPromise=Promise.race([loading,timeout]).catch(error=>{
+   workerPromise=null;loading.then(w=>w.terminate()).catch(()=>{});throw error;
+  });
  }
  return workerPromise;
 }
@@ -166,6 +171,7 @@ $("runOcr").addEventListener("click",async()=>{
   showOcrCandidates(results);
   if(results.length){
    $("keyword").value=results[0].text;status("ocrStatus",t("ocrLowConfidence"));
+   void lookupOfficial(window.JusoOCRCore.addressQueries(results[0].text),true);
   }else{
    status("ocrStatus",t("ocrNoCandidates"),"error");
   }
@@ -215,10 +221,44 @@ $("cloudRun").addEventListener("click",async()=>{
  }
 });
 void loadHandwritingStatus();
+// Fetch the OCR engine while the user is still taking the photo, so recognition starts immediately.
+window.addEventListener("load",()=>setTimeout(preloadWorker,300),{once:true});
 
 function clear(){selected=null;$("selected").hidden=true;$("candidates").hidden=true;$("candidates").replaceChildren();$("manualHelp").hidden=true;$("empty").hidden=false;}
 function choose(result){selected=result;$("candidates").hidden=true;$("selected").hidden=false;$("empty").hidden=true;$("krResult").textContent=result.roadAddr;$("enResult").textContent=result.engAddr||"—";$("zipResult").textContent=t("postal")+": "+result.zipNo;const extra=[result.buildingName,result.jibunAddr].filter(Boolean).join(" · ");const ex=$("extraResult");if(ex){ex.textContent=extra;ex.hidden=!extra;}status("searchStatus","");}
-$("search").addEventListener("click",async()=>{const keyword=$("keyword").value.trim();clear();if(keyword.length<2){status("searchStatus",t("enter"),"error");return;}const btn=$("search");btn.disabled=true;status("searchStatus",t("searching"));try{const res=await fetch("/api/address",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({keyword}),cache:"no-store",credentials:"omit"});const data=await res.json();if(data.code==="NOT_CONFIGURED"){status("searchStatus",t("unavailable"),"error");$("manualHelp").hidden=false;return;}if(data.code==="SENSITIVE_QUERY"){status("searchStatus",t("sensitive"),"error");return;}if(data.code==="JUSO_AUTH_FAILED"){status("searchStatus",t("authProblem"),"error");return;}if(data.code==="JUSO_QUERY_REJECTED"){status("searchStatus",t("queryRejected"),"error");return;}if(data.code==="RATE_LIMITED"){status("searchStatus",t("rateLimited"),"error");return;}if(data.code==="UPSTREAM_TIMEOUT"){status("searchStatus",t("timeout"),"error");return;}if(!res.ok){status("searchStatus",t("providerError"),"error");return;}const results=Array.isArray(data.results)?data.results:[];if(!results.length){status("searchStatus",t("none"));return;}status("searchStatus",t("select"));$("empty").hidden=true;$("candidates").hidden=false;results.forEach(r=>{const b=document.createElement("button");b.type="button";b.className="candidate";const title=document.createElement("b"),subtitle=document.createElement("small");title.textContent=r.roadAddr;subtitle.textContent=[r.buildingName,r.engAddr,r.jibunAddr,r.zipNo].filter(Boolean).join(" · ");b.append(title,subtitle);b.addEventListener("click",()=>choose(r));$("candidates").append(b);});}catch(_){status("searchStatus",t("network"),"error");$("manualHelp").hidden=false;}finally{btn.disabled=false;}});
+// Tries each query in turn until JUSO returns something; photo lookups pass several OCR-tolerant queries.
+async function lookupOfficial(queries,fromPhoto){
+ clear();
+ const btn=$("search");btn.disabled=true;status("searchStatus",t("searching"));
+ try{
+  for(let i=0;i<queries.length;i++){
+   const keyword=queries[i],last=i===queries.length-1;
+   const res=await fetch("/api/address",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({keyword}),cache:"no-store",credentials:"omit"});
+   const data=await res.json();
+   if(data.code==="NOT_CONFIGURED"){status("searchStatus",t("unavailable"),"error");$("manualHelp").hidden=false;return;}
+   if(data.code==="SENSITIVE_QUERY"){status("searchStatus",t("sensitive"),"error");return;}
+   if(data.code==="JUSO_AUTH_FAILED"){status("searchStatus",t("authProblem"),"error");return;}
+   if(!last&&(data.code==="INVALID_QUERY"||data.code==="JUSO_QUERY_REJECTED"))continue;
+   if(data.code==="JUSO_QUERY_REJECTED"){status("searchStatus",t("queryRejected"),"error");return;}
+   if(data.code==="RATE_LIMITED"){status("searchStatus",t("rateLimited"),"error");return;}
+   if(data.code==="UPSTREAM_TIMEOUT"){status("searchStatus",t("timeout"),"error");return;}
+   if(!res.ok){status("searchStatus",t("providerError"),"error");return;}
+   const results=Array.isArray(data.results)?data.results:[];
+   if(!results.length){if(last)status("searchStatus",t("none"));continue;}
+   if(fromPhoto)$("keyword").value=keyword;
+   if(fromPhoto&&results.length===1){
+    choose(results[0]);status("searchStatus",t("matchCheck"),"ok");
+    $("result-title").scrollIntoView({behavior:"smooth",block:"start"});return;
+   }
+   status("searchStatus",t("select"));$("empty").hidden=true;$("candidates").hidden=false;
+   results.forEach(r=>{const b=document.createElement("button");b.type="button";b.className="candidate";const title=document.createElement("b"),subtitle=document.createElement("small");title.textContent=r.roadAddr;subtitle.textContent=[r.buildingName,r.engAddr,r.jibunAddr,r.zipNo].filter(Boolean).join(" · ");b.append(title,subtitle);b.addEventListener("click",()=>choose(r));$("candidates").append(b);});
+   if(fromPhoto)$("result-title").scrollIntoView({behavior:"smooth",block:"start"});
+   return;
+  }
+ }catch(_){status("searchStatus",t("network"),"error");$("manualHelp").hidden=false;}
+ finally{btn.disabled=false;}
+}
+$("search").addEventListener("click",()=>{const keyword=$("keyword").value.trim();if(keyword.length<2){clear();status("searchStatus",t("enter"),"error");return;}void lookupOfficial([keyword],false);});
 $("keyword").addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();$("search").click();}});
 async function copy(s){try{await navigator.clipboard.writeText(s);status("searchStatus",t("copied"),"ok");}catch(_){status("searchStatus",t("copyError"),"error");}}
 $("copyKr").addEventListener("click",()=>{if(selected)copy(selected.roadAddr);});$("copyEn").addEventListener("click",()=>{if(selected&&selected.engAddr)copy(selected.engAddr);});$("copyComplete").addEventListener("click",()=>{if(selected)copy(selected.roadAddr+($("unit").value.trim()?" "+$("unit").value.trim():""));});$("copyInput").addEventListener("click",()=>{if($("keyword").value.trim())copy($("keyword").value.trim());});$("restart").addEventListener("click",()=>{resetPhoto();clear();$("keyword").value="";$("unit").value="";status("searchStatus","");window.scrollTo({top:0,behavior:"smooth"});});

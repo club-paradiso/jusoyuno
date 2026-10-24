@@ -62,6 +62,22 @@ function confidenceHint(candidates){
  if(top.score>=75&&top.confidence>=75)return "medium";
  return "low"; // OCR results are never official addresses; no "high" label.
 }
+// JUSO requires every word to match, so one misread word ("세수" for "제주") returns nothing.
+// Build progressively narrower queries: city + road + number, road + number, then the whole line.
+function addressQueries(text){
+ const s=sanitizeLine(text).replace(/\([^)]*\)?/g," ").replace(/[^가-힣0-9\s-]/g," ").replace(/(^|\s)-+(?=\s|$)/g," ").replace(/\s+/g," ").trim();
+ const out=[];
+ const push=q=>{q=q.trim();if(q.length>=2&&!out.includes(q))out.push(q);};
+ const m=s.match(/([가-힣0-9]+(?:대로|로|길)(?:\s?\d+번?길)?)\s?(\d+(?:-\d+)?)/);
+ if(m){
+  const road=m[1]+" "+m[2];
+  const places=s.slice(0,m.index).split(" ").filter(w=>/^[가-힣]{1,6}(?:시|군|구)$/.test(w));
+  if(places.length)push(places.join(" ")+" "+road);
+  push(road);
+ }
+ push(s);
+ return out.slice(0,3);
+}
 // A full road address (location + road + number) read with solid confidence needs no further passes.
 function isConfidentRead(candidates){
  const top=candidates&&candidates[0];
@@ -118,5 +134,5 @@ function imageQuality(input,width,height){
  const edge=count?total/count:0;
  return {edgeScore:Math.round(edge*10)/10,likelyBlurry:edge<8,likelyLowContrast:(dark/count)<0.005&&(light/count)<0.06};
 }
-return {normalizeText,sanitizeLine,scoreLine,extractCandidates,confidenceHint,isConfidentRead,enhancePixels,imageQuality};
+return {normalizeText,sanitizeLine,scoreLine,extractCandidates,confidenceHint,isConfidentRead,addressQueries,enhancePixels,imageQuality};
 });
