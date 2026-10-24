@@ -124,8 +124,12 @@ function onOcrProgress(progress){
 }
 function getWorker(){
  if(!workerPromise){
-  workerPromise=window.Tesseract.createWorker("kor",1,{logger:onOcrProgress})
-   .catch(error=>{workerPromise=null;throw error;});
+  const loading=window.Tesseract.createWorker("kor",1,{logger:onOcrProgress});
+  // A worker that fails while loading (e.g. blocked WebAssembly) never settles; give up instead of spinning forever.
+  const timeout=new Promise((_,reject)=>setTimeout(()=>reject(Error("OCR engine load timed out")),90000));
+  workerPromise=Promise.race([loading,timeout]).catch(error=>{
+   workerPromise=null;loading.then(w=>w.terminate()).catch(()=>{});throw error;
+  });
  }
  return workerPromise;
 }
