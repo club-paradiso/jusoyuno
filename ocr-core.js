@@ -62,6 +62,11 @@ function confidenceHint(candidates){
  if(top.score>=75&&top.confidence>=75)return "medium";
  return "low"; // OCR results are never official addresses; no "high" label.
 }
+// A full road address (location + road + number) read with solid confidence needs no further passes.
+function isConfidentRead(candidates){
+ const top=candidates&&candidates[0];
+ return !!top&&top.score>=85&&typeof top.confidence==="number"&&top.confidence>=75;
+}
 function enhancePixels(input,width,height,mode="contrast"){
  if(!Number.isInteger(width)||!Number.isInteger(height)||width<1||height<1||width*height>9000000||input.length!==width*height*4)throw Error("Invalid pixel buffer");
  if(!["grayscale","contrast","binary","sharpen"].includes(mode))throw Error("Unknown preprocessing");
@@ -113,5 +118,5 @@ function imageQuality(input,width,height){
  const edge=count?total/count:0;
  return {edgeScore:Math.round(edge*10)/10,likelyBlurry:edge<8,likelyLowContrast:(dark/count)<0.005&&(light/count)<0.06};
 }
-return {normalizeText,sanitizeLine,scoreLine,extractCandidates,confidenceHint,enhancePixels,imageQuality};
+return {normalizeText,sanitizeLine,scoreLine,extractCandidates,confidenceHint,isConfidentRead,enhancePixels,imageQuality};
 });

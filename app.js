@@ -8,7 +8,8 @@ const HI={hero:"कोरियाई पता लिखना कठिन ह
 const dict={en:EN,ko:KO,zh:ZH,vi:VI,id:ID,hi:HI};
 const OCR_COPY={"en":{"ocrCandidatesTitle":"Possible address readings (NOT VERIFIED)","ocrHint":"Handwriting and faint text can be misread. Choose or edit an option, then check against official address records.","ocrOption":"Use this reading","ocrNoCandidates":"We could not reliably read an address. Try a clearer, closer photo or type it.","ocrLowConfidence":"Low-confidence reading. Carefully correct errors before searching.","ocrProgress":"Reading locally, pass","ocrCloudTitle":"Optional handwriting recognition","ocrCloudExplain":"Only the cropped address image will be sent to Microsoft Azure for recognition. This transfers image data outside your device. Cover names, ID numbers and signatures first. Do not use real sensitive documents without authorization.","ocrCloudConsent":"I agree to send ONLY the cropped address image to the external OCR provider for this request.","ocrCloudRun":"Try handwriting reader","ocrCloudStatus":"Handwriting reader is processing the cropped image…","ocrCloudDone":"Handwriting OCR returned possible text. Check and correct it before official address search.","ocrCloudFailed":"Handwriting recognition was unavailable. Continue with local text or type the address.","ocrNotVerified":"OCR guesses are not official address verification.","ocrNewImage":"Image updated. Run recognition again.","ocrImageDecodeError":"This image cannot be opened on your device. Try JPEG, PNG or WebP."},"ko":{"ocrCandidatesTitle":"주소 인식 후보 (미검증)","ocrHint":"악필·흐린 글씨는 잘못 인식될 수 있습니다. 후보를 선택하거나 수정한 뒤 공식 주소를 검색하세요.","ocrOption":"이 후보 사용","ocrNoCandidates":"주소를 충분히 인식하지 못했습니다. 주소 부분을 더 크게 다시 촬영하거나 직접 입력하세요.","ocrLowConfidence":"정확도가 낮은 후보입니다. 검색 전 오타를 꼭 수정하세요.","ocrProgress":"기기 내부 인식 중 · 단계","ocrCloudTitle":"선택적 손글씨 인식","ocrCloudExplain":"주소로 선택한 사진 영역만 Microsoft Azure로 전송합니다. 이미지는 휴대전화를 벗어나므로 이름·등록번호·서명을 미리 가리세요. 기관 승인 없이 민감한 실제 서류는 사용하지 마세요.","ocrCloudConsent":"이번 요청에 한해 잘라낸 주소 이미지의 외부 OCR 전송에 동의합니다.","ocrCloudRun":"손글씨 전용 인식 시도","ocrCloudStatus":"잘라낸 주소 이미지를 손글씨 엔진이 인식하는 중…","ocrCloudDone":"손글씨 인식 후보를 받았습니다. 공식 주소 검색 전 직접 확인하세요.","ocrCloudFailed":"손글씨 인식을 이용할 수 없습니다. 기존 결과를 수정하거나 직접 입력하세요.","ocrNotVerified":"OCR 후보는 공식 주소 확인 결과가 아닙니다.","ocrNewImage":"사진이 변경됐습니다. 다시 인식하세요.","ocrImageDecodeError":"기기에서 이미지를 열 수 없습니다. JPEG·PNG·WebP로 다시 시도하세요."},"zh":{"ocrCandidatesTitle":"可能的地址识别结果（未经验证）","ocrHint":"潦草手写和模糊文字可能识别错误。请选择并修改，再查询官方地址。","ocrOption":"使用此结果","ocrNoCandidates":"无法可靠识别地址。请拍摄更清晰的近照或手动输入。","ocrLowConfidence":"识别可信度较低，请仔细核对。","ocrProgress":"本地识别，第","ocrCloudTitle":"可选手写识别","ocrCloudExplain":"仅选中的地址区域将发送至 Microsoft Azure。请遮盖姓名、证件号码和签名；未经许可请勿上传敏感文件。","ocrCloudConsent":"我同意仅将裁剪后的地址图片发送至外部识别服务完成本次请求。","ocrCloudRun":"尝试手写识别","ocrCloudStatus":"正在识别裁剪后的图片…","ocrCloudDone":"已获取手写识别候选，请自行核对。","ocrCloudFailed":"手写识别不可用，请手动输入。","ocrNotVerified":"OCR识别不等于官方地址核实。","ocrNewImage":"图片已更换，请重新识别。","ocrImageDecodeError":"无法打开此图片。请使用 JPEG、PNG 或 WebP。"},"vi":{"ocrCandidatesTitle":"Các địa chỉ nhận dạng được (CHƯA XÁC MINH)","ocrHint":"Chữ viết tay và ảnh mờ dễ bị đọc sai. Chọn hoặc sửa trước khi tra cứu chính thức.","ocrOption":"Dùng kết quả này","ocrNoCandidates":"Không đọc được địa chỉ rõ ràng. Hãy chụp gần hơn hoặc nhập thủ công.","ocrLowConfidence":"Độ tin cậy thấp. Kiểm tra kỹ trước khi tìm.","ocrProgress":"Nhận dạng trên máy, lượt","ocrCloudTitle":"Nhận dạng chữ viết tay tùy chọn","ocrCloudExplain":"Chỉ phần ảnh địa chỉ đã cắt được gửi tới Microsoft Azure. Che tên, số định danh và chữ ký. Không gửi tài liệu nhạy cảm khi chưa được phép.","ocrCloudConsent":"Tôi đồng ý gửi CHỈ phần ảnh địa chỉ đã cắt tới dịch vụ OCR bên ngoài cho lần này.","ocrCloudRun":"Thử đọc chữ viết tay","ocrCloudStatus":"Đang nhận dạng chữ viết tay…","ocrCloudDone":"Đã có kết quả OCR. Hãy kiểm tra lại.","ocrCloudFailed":"Không thể nhận dạng chữ viết tay. Hãy nhập thủ công.","ocrNotVerified":"Kết quả OCR không phải xác minh địa chỉ chính thức.","ocrNewImage":"Ảnh đã thay đổi. Vui lòng nhận dạng lại.","ocrImageDecodeError":"Không mở được ảnh. Hãy thử JPEG, PNG hoặc WebP."},"id":{"ocrCandidatesTitle":"Kemungkinan hasil baca alamat (BELUM DIVERIFIKASI)","ocrHint":"Tulisan tangan dan foto buram mudah salah dibaca. Pilih atau perbaiki sebelum mencari alamat resmi.","ocrOption":"Gunakan hasil ini","ocrNoCandidates":"Alamat tidak terbaca dengan yakin. Ambil foto lebih dekat atau ketik sendiri.","ocrLowConfidence":"Keyakinan rendah. Periksa dan perbaiki.","ocrProgress":"Membaca secara lokal, tahap","ocrCloudTitle":"Pengenalan tulisan tangan opsional","ocrCloudExplain":"Hanya gambar alamat yang dipotong dikirim ke Microsoft Azure. Tutupi nama, nomor identitas, dan tanda tangan. Jangan unggah dokumen sensitif tanpa izin.","ocrCloudConsent":"Saya setuju mengirim HANYA gambar alamat yang dipotong ke penyedia OCR eksternal untuk permintaan ini.","ocrCloudRun":"Coba baca tulisan tangan","ocrCloudStatus":"Mengenali tulisan tangan…","ocrCloudDone":"Hasil tulisan tangan diterima. Periksa lagi.","ocrCloudFailed":"Pengenalan tulisan tangan tidak tersedia. Silakan ketik.","ocrNotVerified":"Hasil OCR bukan verifikasi alamat resmi.","ocrNewImage":"Foto berubah. Jalankan OCR lagi.","ocrImageDecodeError":"Gambar tidak dapat dibuka. Gunakan JPEG, PNG, atau WebP."},"hi":{"ocrCandidatesTitle":"संभावित पता पहचान (असत्यापित)","ocrHint":"अस्पष्ट हस्तलिपि गलत पढ़ी जा सकती है। आधिकारिक खोज से पहले चुनें या सुधारें।","ocrOption":"यह पाठ उपयोग करें","ocrNoCandidates":"पता स्पष्ट नहीं पढ़ा जा सका। पास से फ़ोटो लें या लिखें।","ocrLowConfidence":"विश्वास कम है। खोजने से पहले सावधानी से जाँचें।","ocrProgress":"डिवाइस पर पढ़ना, चरण","ocrCloudTitle":"वैकल्पिक हस्तलिपि पहचान","ocrCloudExplain":"केवल काटी गई पते की छवि Microsoft Azure को भेजी जाएगी। नाम, पहचान नंबर, हस्ताक्षर छिपाएँ। बिना अनुमति संवेदनशील दस्तावेज़ न भेजें।","ocrCloudConsent":"मैं इस अनुरोध के लिए केवल काटी गई पते की छवि बाहरी OCR को भेजने की सहमति देता/देती हूँ।","ocrCloudRun":"हस्तलिपि पहचान आज़माएँ","ocrCloudStatus":"हस्तलिपि पढ़ी जा रही है…","ocrCloudDone":"संभावित परिणाम मिला। सत्यापित करें।","ocrCloudFailed":"हस्तलिपि पहचान उपलब्ध नहीं है। खुद लिखें।","ocrNotVerified":"OCR परिणाम आधिकारिक पता सत्यापन नहीं है।","ocrNewImage":"फ़ोटो बदली गई। फिर से पहचानें।","ocrImageDecodeError":"छवि नहीं खुल सकी। JPEG, PNG या WebP आज़माएँ।"}};
 for(const language of Object.keys(OCR_COPY))OCR_COPY[language].galleryLabel={en:"Choose from photos instead",ko:"사진 보관함에서 선택",zh:"从相册选择",vi:"Chọn từ thư viện ảnh",id:"Pilih dari galeri",hi:"फ़ोटो गैलरी से चुनें"}[language];
-const $=id=>document.getElementById(id);let lang="en",selected=null,photoURL=null,worker=null,drag=null;
+for(const language of Object.keys(OCR_COPY))OCR_COPY[language].ocrLoading={en:"Preparing the Korean text reader (first time only, a few MB)",ko:"한국어 인식 엔진 준비 중 (처음 한 번만, 몇 MB)",zh:"正在准备韩文识别引擎（仅首次，约几MB）",vi:"Đang chuẩn bị bộ đọc tiếng Hàn (chỉ lần đầu, vài MB)",id:"Menyiapkan pembaca teks Korea (hanya pertama kali, beberapa MB)",hi:"कोरियाई टेक्स्ट रीडर तैयार हो रहा है (केवल पहली बार, कुछ MB)"}[language];
+const $=id=>document.getElementById(id);let lang="en",selected=null,photoURL=null,drag=null;
 const t=k=>(OCR_COPY[lang]&&OCR_COPY[lang][k])||(dict[lang]&&dict[lang][k])||EN[k]||k;
 function translate(){document.documentElement.lang=lang;document.querySelectorAll("[data-i18n]").forEach(n=>n.textContent=t(n.dataset.i18n));if(scanResults?.length)showOcrCandidates(scanResults);}
 $("language").addEventListener("change",e=>{lang=e.target.value;translate();});
@@ -42,6 +43,7 @@ async function installPhoto(file){
   const selection=$("crop");selection.style.cssText="left:6%;top:22%;width:88%;height:50%";
   $("cloudPanel").hidden=!handwritingEnabled;
   status("ocrStatus",t("ocrNewImage"));
+  preloadWorker();
  }catch(_){if(gen===ocrGeneration){resetPhoto();status("ocrStatus",t("ocrImageDecodeError"),"error");}}
 }
 $("photo").addEventListener("change",e=>{void installPhoto(e.target.files[0]);});
@@ -113,32 +115,51 @@ function candidateFromRecords(records){
  if(!window.JusoOCRCore)throw Error("OCR parser unavailable");
  return window.JusoOCRCore.extractCandidates(records,6);
 }
+// One shared Korean-only worker: kor+eng doubled both the first download and every pass.
+// It starts loading as soon as a photo is chosen and is reused for later scans.
+let workerPromise=null,ocrActive=null;
+function onOcrProgress(progress){
+ if(!ocrActive||ocrActive.gen!==ocrGeneration||progress.status!=="recognizing text")return;
+ status("ocrStatus",t("ocrProgress")+" "+ocrActive.pass+"/4 · "+Math.round((progress.progress||0)*100)+"%");
+}
+function getWorker(){
+ if(!workerPromise){
+  workerPromise=window.Tesseract.createWorker("kor",1,{logger:onOcrProgress})
+   .catch(error=>{workerPromise=null;throw error;});
+ }
+ return workerPromise;
+}
+function preloadWorker(){if(window.Tesseract?.createWorker)getWorker().catch(()=>{});}
+async function waitForWorker(gen){
+ const started=Date.now();
+ const tick=()=>{if(gen===ocrGeneration)status("ocrStatus",t("ocrLoading")+" · "+Math.round((Date.now()-started)/1000)+"s");};
+ let timer=null;
+ const pending=getWorker();
+ // Only show the download message when the engine is actually still loading.
+ const shown=setTimeout(()=>{tick();timer=setInterval(tick,1000);},150);
+ try{return await pending;}finally{clearTimeout(shown);if(timer)clearInterval(timer);}
+}
 $("runOcr").addEventListener("click",async()=>{
  const btn=$("runOcr"),img=$("previewImage");
  if(!img.naturalWidth||!window.Tesseract?.createWorker||!window.JusoOCRCore){status("ocrStatus",t("ocrError"),"error");return;}
  const gen=ocrGeneration;btn.disabled=true;$("runOcr").setAttribute("aria-busy","true");
  showOcrCandidates([]);
+ let worker=null;
  try{
   const original=imageRegion();
   const passes=["original","sharpen","contrast","binary"],records=[];
-  status("ocrStatus",t("ocrProgress")+" 1/4");
-  worker=await window.Tesseract.createWorker("kor+eng",1,{logger:progress=>{
-    if(progress.status==="recognizing text"&&gen===ocrGeneration){
-     const stage=Math.max(1,records.length+1);
-     status("ocrStatus",t("ocrProgress")+" "+stage+"/4 · "+Math.round((progress.progress||0)*100)+"%");
-    }
-  }});
+  worker=await waitForWorker(gen);
   if(typeof worker.setParameters==="function")await worker.setParameters({tessedit_pageseg_mode:"6",preserve_interword_spaces:"1"});
   for(let i=0;i<passes.length;i++){
    if(gen!==ocrGeneration)break;
+   ocrActive={gen,pass:i+1};
    status("ocrStatus",t("ocrProgress")+" "+(i+1)+"/4");
    if(typeof worker.setParameters==="function"&&i===1)await worker.setParameters({tessedit_pageseg_mode:"7"});
    if(typeof worker.setParameters==="function"&&i===2)await worker.setParameters({tessedit_pageseg_mode:"6"});
    const result=await worker.recognize(variation(original,passes[i]));
    records.push({text:result.data.text||"",confidence:result.data.confidence||0,source:passes[i]});
-   const current=candidateFromRecords(records);
-   // A second pass typically catches faint print. Reserve binary pass for uncertain handwriting.
-   if(i>=1&&current[0]?.score>=88&&current[0]?.confidence>=82)break;
+   // Clear printed addresses are done after one pass; extra passes are for faint print and handwriting.
+   if(window.JusoOCRCore.isConfidentRead(candidateFromRecords(records)))break;
   }
   if(gen!==ocrGeneration)return;
   const results=candidateFromRecords(records);
@@ -148,9 +169,13 @@ $("runOcr").addEventListener("click",async()=>{
   }else{
    status("ocrStatus",t("ocrNoCandidates"),"error");
   }
- }catch(_){if(gen===ocrGeneration)status("ocrStatus",t("ocrError"),"error");}
+ }catch(_){
+  if(gen===ocrGeneration)status("ocrStatus",t("ocrError"),"error");
+  // A worker that failed mid-recognition is discarded so the next attempt starts clean.
+  if(worker){workerPromise=null;try{await worker.terminate();}catch(_){}}
+ }
  finally{
-  if(worker){try{await worker.terminate();}catch(_){}worker=null;}
+  ocrActive=null;
   btn.disabled=false;btn.removeAttribute("aria-busy");
  }
 });
