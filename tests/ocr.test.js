@@ -55,3 +55,10 @@ test("a clear printed road address stops after one OCR pass",()=>{
  assert.equal(core.isConfidentRead(core.extractCandidates([{text:"제주시 노형동 925",confidence:90}])),false);
  assert.equal(core.isConfidentRead([]),false);
 });
+test("address queries tolerate a misread word by narrowing to city + road + number",()=>{
+ assert.deepEqual(core.addressQueries("세수 제주시 노연로 7 (노형통"),["제주시 노연로 7","노연로 7","세수 제주시 노연로 7"]);
+ assert.deepEqual(core.addressQueries("부산 해운대구 구남로 3번길 5"),["해운대구 구남로 3번길 5","구남로 3번길 5","부산 해운대구 구남로 3번길 5"]);
+ assert.deepEqual(core.addressQueries("세수시 도열로 7 (노형동) -"),["세수시 도열로 7","도열로 7"]);
+ // Lot-number (jibun) addresses have no road to narrow to.
+ assert.deepEqual(core.addressQueries("제주시 노형동 925"),["제주시 노형동 925"]);
+});
