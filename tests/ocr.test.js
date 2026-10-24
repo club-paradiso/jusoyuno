@@ -46,3 +46,12 @@ test("sharpen enhancement preserves pixel shape and edge quality diagnostics",()
  const blankQuality=core.imageQuality(blank,12,12);
  assert.equal(blankQuality.likelyBlurry,true);
 });
+test("a clear printed road address stops after one OCR pass",()=>{
+ // Receipt text as read by Tesseract kor on the first (original) pass.
+ const clear=core.extractCandidates([{text:"6(;(070-7017-0404)\n세주 제주시 노연로 7 (노형통)\n",confidence:83,source:"original"}]);
+ assert.equal(core.isConfidentRead(clear),true);
+ const faint=core.extractCandidates([{text:"세주 세수시 도열로 7 (노형동)\n",confidence:56,source:"original"}]);
+ assert.equal(core.isConfidentRead(faint),false);
+ assert.equal(core.isConfidentRead(core.extractCandidates([{text:"제주시 노형동 925",confidence:90}])),false);
+ assert.equal(core.isConfidentRead([]),false);
+});

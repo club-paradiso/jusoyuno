@@ -5,7 +5,7 @@
 ## Features
 
 - Korean, English, Simplified Chinese, Vietnamese, Indonesian and Hindi interface
-- On-device Korean/English OCR with a movable and resizable image crop
+- On-device Korean OCR (engine preloads while you position the crop) with a movable and resizable image crop
 - Official Korean/English address search via the Ministry of the Interior and Safety's JUSO API, once configured
 - Korean/English address copying and separately entered, unverified building/unit information
 - Honest manual fallback when the official API is unavailable. No fabricated address results
